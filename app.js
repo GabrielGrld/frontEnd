@@ -15,7 +15,21 @@ app.use(express.static("public"));
 app.use(express.json());
 
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + "/adduser.html");
+  res.sendFile(__dirname + "/menu.html");
+
+app.get('/adduser', function(req, res){
+  res.sendFile(__dirname+"/adduser.html");
+});
+
+app.get('/finduser', function(req, res){
+  res.sendFile(__dirname+"/cliente.html");
+});
+
+app.get('/seeusers', function (req, res){
+  res.sendFile(__dirname+"/clientes.html");
+});
+
+
   app.post('/create', function(req, res) {
     const query = req.body;
     const usuario_id = req.body.usuario_id;
@@ -46,54 +60,13 @@ app.get('/', function(req, res) {
       console.log(error);
       res.sendFile(__dirname+"/failure.html");
     });
-    // console.log(res.body.status);
+
+    
   });
 
-  app.post("/failure", function(req, res){
+  app.post("/menu", function(req, res){
     res.redirect("/");
   });
-  app.post("/success", function(req, res){
-    res.redirect("/");
-  });
-
-  ////HERE IS THE GOOD CODE
-  // app.post('/', function(req, res){
-  //   const query = req.body;
-  //   const usuario_id = req.body.usuario_id;
-  //   const identificacion = req.body.identificacion;
-  //   const nombre = req.body.nombre;
-  //   const apellido = req.body.apellido;
-  //   const nacionalidad = req.body.nacionalidad;
-  //   const telefono = req.body.telefono;
-  //
-  //   const data = {
-  //     usuario_id : usuario_id,
-  //     identificacion : identificacion,
-  //     nombre : nombre,
-  //     apellido : apellido,
-  //     nacionalidad : nacionalidad,
-  //     telefono : telefono
-  //   };
-  //   var jsonData = JSON.stringify(data);
-  //   console.log(jsonData);
-  //   const url = "https://grupo10-p27.herokuapp.com/cliente/";
-  // const options = {
-  //   method:"POST"
-  // };
-  //   const request = https.request(url, options, function(response){
-  //     response.on("data", function(data){
-  //       console.log(JSON.parse(data));
-  //     });
-  //   });
-  // request.write(jsonData);
-  // request.end();
-  // });
-
-  // app.post('https://grupo10-p27.herokuapp.com/cliente/', function(req, res){
-  //   const query = req.body;
-  //   console.log(query);
-  //
-  // });
 
 });
 
