@@ -22,12 +22,12 @@ app.post('/', function(req, res){
   const telefono = req.body.telefono;
 
   const data = {
-    usuario_id:usuario_id,
-    identificacion:identificacion,
-    nombre:nombre,
-    apellido:apellido,
-    nacionalidad: nacionalidad,
-    telefono: telefono
+    usuario_id : usuario_id,
+    identificacion : identificacion,
+    nombre : nombre,
+    apellido : apellido,
+    nacionalidad : nacionalidad,
+    telefono : telefono
   };
   var jsonData = JSON.stringify(data);
   console.log(jsonData);
