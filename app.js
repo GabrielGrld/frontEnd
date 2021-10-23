@@ -14,9 +14,41 @@ app.get('/', function(req, res){
 
 app.post('/', function(req, res){
   const query = req.body;
-  console.log(query);
+  const usuario_id = req.body.usuario_id;
+  const identificacion = req.body.identificacion;
+  const nombre = req.body.nombre;
+  const apellido = req.body.apellido;
+  const nacionalidad = req.body.nacionalidad;
+  const telefono = req.body.telefono;
 
+  const data = {
+    usuario_id:usuario_id,
+    identificacion:identificacion,
+    nombre:nombre,
+    apellido:apellido,
+    nacionalidad: nacionalidad,
+    telefono: telefono
+  };
+  var jsonData = JSON.stringify(data);
+  console.log(jsonData);
+  const url = "https://grupo10-p27.herokuapp.com/cliente/";
+const options = {
+  method:"POST"
+};
+  const request = https.request(url, options, function(response){
+    response.on("data", function(data){
+      console.log(JSON.parse(data));
+    });
+  });
+request.write(jsonData);
+request.end();
 });
+
+// app.post('https://grupo10-p27.herokuapp.com/cliente/', function(req, res){
+//   const query = req.body;
+//   console.log(query);
+//
+// });
 
 });
 
