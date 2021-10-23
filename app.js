@@ -38,15 +38,13 @@ app.get('/', function(req, res) {
       console.log(response.status);
 
       if (response.status === 201) {
-        res.send("Successfully Created User");
-      } else{
-        res.send("We have an Error here :(");
+        res.sendFile(__dirname+"/success.html");
       }
-
 
     })
     .catch(function(error){
       console.log(error);
+      res.sendFile(__dirname+"/failure.html");
     });
     // console.log(res.body.status);
   });
