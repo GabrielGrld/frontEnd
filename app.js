@@ -49,6 +49,13 @@ app.get('/', function(req, res) {
     // console.log(res.body.status);
   });
 
+  app.post("/failure", function(req, res){
+    res.redirect("/");
+  });
+  app.post("/success", function(req, res){
+    res.redirect("/");
+  });
+
   ////HERE IS THE GOOD CODE
   // app.post('/', function(req, res){
   //   const query = req.body;
