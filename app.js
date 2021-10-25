@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + "/menu.html");
+  });
 
 app.get('/adduser', function(req, res){
   res.sendFile(__dirname+"/adduser.html");
@@ -61,16 +62,15 @@ app.get('/seeusers', function (req, res){
       res.sendFile(__dirname+"/failure.html");
     });
 
-    
+
   });
 
   app.post("/menu", function(req, res){
     res.redirect("/");
   });
 
-});
+
 
 app.listen('3000', function() {
   console.log("Server running on port 3000.");
-
 });
