@@ -11,7 +11,7 @@
 
 <body>
   <h1>Clientes En el Sistema</h1>
-  <table class="table">
+  <table class="table table-striped  table-hover">
     <thead>
     <tr>
       <th scope="col">Id Cliente</th>
@@ -25,23 +25,6 @@
 
     <tbody>
 
-    <tr>
-      <td scope="row">8</td>
-      <td>1745014</td>
-      <td>Fidel </td>
-      <td>Candanoza</td>
-      <td>Colombia</td>
-      <td>312404750</td>
-    </tr>
-
-    <tr >
-      <td scope="row">9</td>
-      <td>1514781</td>
-      <td>Roberto </td>
-      <td>Carlos</td>
-      <td>Argentina</td>
-      <td>3145804750</td>
-    </tr>
     <% for(var i=0; i < clientesJSON.length; i++) { %>
       <tr>
         <td scope="row"><%= clientesJSON[i].cliente_id %></td>

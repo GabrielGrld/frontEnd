@@ -32,14 +32,9 @@ app.get('/seeusers', function (req, res){
   axios.get('https://grupo10-p27.herokuapp.com/cliente/')
     .then(function(response){
       clientesJSON = response.data;   // Aqui obtengo el Objeto JSON con todos los clientes
-      for (let i = 1; i<10;i++){
-        console.log(clientesJSON[i]);
-      }
 
-      console.log(response.status);
-      if (response.status === 201) {
-        console.log("Status is");
-      }
+
+    
 
     })
     .catch(function(error){
