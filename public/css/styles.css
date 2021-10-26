@@ -17,6 +17,10 @@ body {
   padding-bottom: 40px;
   background-color: #f5f5f5;
 }
+.color-naranja{
+  background-color:#E05D5D;
+  border-color:#E05D5D
+}
 
 .form-signin {
   width: 100%;
