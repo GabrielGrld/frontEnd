@@ -8,7 +8,7 @@ const axios = require('axios');
 
 const app = express();
 
-
+var clientesJSON = []; // Here we save the clientes objects
 
 app.use(bodyParser.urlencoded({  extended: true}));
 app.set('view engine', 'ejs');
@@ -27,8 +27,26 @@ app.get('/finduser', function(req, res){
   res.sendFile(__dirname+"/cliente.html");
 });
 
+//this get is for get the clientes and display them in a table using EJS template
 app.get('/seeusers', function (req, res){
-  res.sendFile(__dirname+"/clientes.html");
+  axios.get('https://grupo10-p27.herokuapp.com/cliente/')
+    .then(function(response){
+      clientesJSON = response.data;   // Aqui obtengo el Objeto JSON con todos los clientes
+      for (let i = 1; i<10;i++){
+        console.log(clientesJSON[i]);
+      }
+
+      console.log(response.status);
+      if (response.status === 201) {
+        console.log("Status is");
+      }
+
+    })
+    .catch(function(error){
+      console.log(error);
+
+    });
+  res.render('clientes', {  clientesJSON: clientesJSON });
 });
 
 

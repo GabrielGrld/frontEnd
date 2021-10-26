@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Clientes</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <h1>Clientes En el Sistema</h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id Cliente</th>
+      <th scope="col">Identificación</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Nacionalidad</th>
+      <th scope="col">Telefono</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr>
+      <td scope="row">8</td>
+      <td>1745014</td>
+      <td>Fidel </td>
+      <td>Candanoza</td>
+      <td>Colombia</td>
+      <td>312404750</td>
+    </tr>
+
+    <tr >
+      <td scope="row">9</td>
+      <td>1514781</td>
+      <td>Roberto </td>
+      <td>Carlos</td>
+      <td>Argentina</td>
+      <td>3145804750</td>
+    </tr>
+    <% for(var i=0; i < clientesJSON.length; i++) { %>
+      <tr>
+        <td scope="row"><%= clientesJSON[i].cliente_id %></td>
+        <td><%= clientesJSON[i].identificacion %></td>
+        <td><%= clientesJSON[i].nombre %></td>
+        <td><%= clientesJSON[i].apellido %></td>
+        <td><%= clientesJSON[i].nacionalidad %></td>
+        <td><%= clientesJSON[i].telefono %></td>
+      </tr>
+      <% } %>
+      </tbody>
+  </table>
+
+  <form class="" action="/seeusers" method="get">
+    <button type="submit" name="button">Mirar Clientes</button>
+
+  </form>
+
+
+
+
+
+    </body>
+</body>
+
+</html>
