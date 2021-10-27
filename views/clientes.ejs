@@ -7,25 +7,46 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <!-- Icon for the Image -->
+      <link rel="icon" href="images/favicon.ico">
 </head>
 
 <body>
+
   <h1>Clientes En el Sistema</h1>
+
+<div class="container m-2">
+<div class="row">
+  <div class=" col-sm">
+    <form class="" action="/seeusers" method="get">
+      <button class="btn btn-danger" type="submit" name="button">Mirar Clientes</button>
+    </form>
+  </div>
+
+  <div class=" col-sm">
+    <form class="" action="/" method="get">
+      <button class="btn btn-danger" type="submit" name="button">Menú</button>
+    </form>
+  </div>
+</div>
+</div>
+
   <table class="table table-striped  table-hover">
     <thead>
-    <tr>
-      <th scope="col">Id Cliente</th>
-      <th scope="col">Identificación</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Nacionalidad</th>
-      <th scope="col">Telefono</th>
-    </tr>
+      <tr>
+        <th scope="col">Id Cliente</th>
+        <th scope="col">Identificación</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Nacionalidad</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Borrar</th>
+      </tr>
     </thead>
 
     <tbody>
 
-    <% for(var i=0; i < clientesJSON.length; i++) { %>
+      <% for(var i=0; i < clientesJSON.length; i++) { %>
       <tr>
         <td scope="row"><%= clientesJSON[i].cliente_id %></td>
         <td><%= clientesJSON[i].identificacion %></td>
@@ -33,21 +54,37 @@
         <td><%= clientesJSON[i].apellido %></td>
         <td><%= clientesJSON[i].nacionalidad %></td>
         <td><%= clientesJSON[i].telefono %></td>
+        <td>
+          <form action="/deleteuser" method="post">
+            <input type="number" id="inputIdCliente" class="" name="usuario_id" placeholder="Confirmar Id Cliente" required autofocus>
+            <button type="submit" name="button" class="btn btn-danger">Borrar</button>
+          </form>
+        </td>
       </tr>
       <% } %>
-      </tbody>
+    </tbody>
   </table>
 
-  <form class="" action="/seeusers" method="get">
-    <button type="submit" name="button">Mirar Clientes</button>
+  <div class="container m-2">
+  <div class="row">
+    <div class=" col-sm">
+      <form class="" action="/seeusers" method="get">
+        <button class="btn btn-danger" type="submit" name="button">Mirar Clientes</button>
+      </form>
+    </div>
 
-  </form>
+    <div class=" col-sm">
+      <form class="" action="/" method="get">
+        <button class="btn btn-danger" type="submit" name="button">Menú</button>
+      </form>
+    </div>
+  </div>
+  </div>
 
 
 
 
-
-    </body>
+</body>
 </body>
 
 </html>

@@ -31,10 +31,7 @@ app.get('/finduser', function(req, res){
 app.get('/seeusers', function (req, res){
   axios.get('https://grupo10-p27.herokuapp.com/cliente/')
     .then(function(response){
-      clientesJSON = response.data;   // Aqui obtengo el Objeto JSON con todos los clientes
-
-
-    
+      clientesJSON = response.data;  // Aqui obtengo el Objeto JSON con todos los clientes
 
     })
     .catch(function(error){
@@ -43,7 +40,6 @@ app.get('/seeusers', function (req, res){
     });
   res.render('clientes', {  clientesJSON: clientesJSON });
 });
-
 
   app.post('/create', function(req, res) {
     const query = req.body;
@@ -81,6 +77,30 @@ app.get('/seeusers', function (req, res){
 
   app.post("/menu", function(req, res){
     res.redirect("/");
+  });
+
+  //To delete a adduser
+  app.post("/deleteuser", function (req, res){
+    //console.log("Delete user");
+    const usuario_id = req.body.usuario_id;
+    //console.log(usuario_id);
+    const url = "https://grupo10-p27.herokuapp.com/cliente/"+usuario_id;
+    //console.log(url);
+
+    axios.delete(url).then(function(response){
+      //console.log(response.status);
+
+      if (response.status === 404) {
+        //console.log("ERROR" );
+      //  res.sendFile(__dirname+"/success.html");
+      }
+
+    }).catch(function(error){
+      //console.log(error);
+      //res.sendFile(__dirname+"/failure.html");
+    });
+
+    res.redirect("/seeusers");
   });
 
 
